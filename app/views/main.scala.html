@@ -1,0 +1,43 @@
+@*
+ * This template is called from the `index` template. This template
+ * handles the rendering of the page header and body tags. It takes
+ * two arguments, a `String` for the title of the page and an `Html`
+ * object to insert into the body of the page.
+ *@
+@(title: String)(content: Html)
+@import helper._
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        @* Here's where we render the page title `String`. *@
+        <title>@title</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("less/navbar")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
+        <script src="@routes.Assets.versioned("javascripts/hello.js")" type="text/javascript"></script>
+    </head>
+
+
+    <body class="main-body">
+        <div id="header">
+        <nav class="navbar navbar-fixed-top navbar-inverse">
+            <div class="navbar-header">
+                <a class="navbar-brand">Online Progress</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/">Home</a></li>
+                    <li><a href="/progress">Progress</a></li>
+                    <li><a href="/about">About</a></li>
+                </ul>
+                <a href="/user/regisrate" class="btn btn-success pull-right" role="button">Sign up</a>
+                <div class="navbar-form navbar-right">
+                </div>
+            </div>
+        </nav>
+        </div>
+
+        @content
+    </body>
+</html>
